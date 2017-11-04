@@ -1,3 +1,0 @@
-<Robot name="Talos">
-    <CANTalon name="leftFront" port="0" isInverted="true"/>
-</Robot>

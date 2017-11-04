@@ -1,6 +1,6 @@
 package com.team2851.robot;
 
-import com.team2851.robot.operatorInterface.Controller;
+import com.team2851.util.Controller;
 
 public class RobotConstants
 {
@@ -57,4 +57,5 @@ public class RobotConstants
     public final boolean IS_CHILD_SAFETY_ENGAGED = false;
 
     public final double AGITATOR_POWER = 0.3;
+    public final String configFilePath = "/home/lvuser/configFile/";
 }
