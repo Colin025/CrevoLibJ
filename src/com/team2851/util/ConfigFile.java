@@ -14,6 +14,18 @@ import java.util.List;
 
 public class ConfigFile
 {
+    /*
+     *  Singleton class that opens a configuration file at the directory defined in the RobotConstants class.
+     *
+     *  Public/Protected Methods:
+     *      getInstance(): Returns the static instance of ConfigFile
+     *      getRobotName() throws NullPointerException: Returns the name of the robot defined in <Robot name="">
+     *      getCANTalon(String name) throws ElementNotFoundException: Searches for the talon defined with the name
+     *          provided and configures a corresponding CANTalon object. Throws an ElementNotFoundException if the
+     *          element was not found in the config file or it could not be properly configured.
+     *      getController(String name) throws ElementNotFoundException: Takes a configFile name and creates a controller
+     *          based on the contents of the xml file
+     */
     private SAXBuilder saxBuilder = new SAXBuilder();
     private Document document;
 
@@ -35,7 +47,7 @@ public class ConfigFile
         return sInstance;
     }
 
-    public String getRobotName()
+    public String getRobotName() throws NullPointerException
     {
         return document.getRootElement().getAttributeValue("name");
     }
@@ -322,6 +334,3 @@ public class ConfigFile
         throw new ElementNotFoundException();
     }
 }
-
-class ElementNotFoundException extends Exception { }
-

@@ -1,0 +1,4 @@
+<Controller port="0" name="Jason Drive">
+    <Button id="a" mode="toggle"/>
+    <Axis id="leftX" mode="raw"/>
+</Controller>
