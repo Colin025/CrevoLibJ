@@ -1,13 +1,8 @@
 package com.team2851.robot.auton;
 
-/*
- *  Taken from team 251's 2017 robot
- */
-
 import com.team2851.robot.auton.actions.Action;
 
-public abstract class Auton
-{
+public abstract class Auton {
     private String name = "NULL Auton";
     protected Auton(String name)
     {
@@ -42,25 +37,19 @@ public abstract class Auton
 
     public boolean isAlive() throws AutonEndedException
     {
-        if (!isAlive)
-            throw new AutonEndedException();
+        if (!isAlive) throw new AutonEndedException();
         return isAlive;
     }
 
-    public void runAction(Action action) throws AutonEndedException
-    {
+    public void runAction(Action action) throws AutonEndedException {
         isAlive();
         action.start();
 
         while (isAlive() && !action.isFinished())
         {
             action.update();
-
-            try {
-                Thread.sleep(0, 1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            try { Thread.sleep(0, 1); }
+            catch (InterruptedException e) { e.printStackTrace(); }
         }
         action.done();
     }

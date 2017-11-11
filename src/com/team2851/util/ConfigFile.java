@@ -33,9 +33,9 @@ public class ConfigFile
 
     private ConfigFile()
     {
-        File file = new File(RobotConstants.getInstance().configFilePath);
+        File file = new File(RobotConstants.getInstance().configFilePath + "robot.xml");
         try {
-            document = saxBuilder.build(file + "robot.xml");
+            document = saxBuilder.build(file);
         } catch (JDOMException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -114,6 +114,8 @@ public class ConfigFile
             talon.setPID(p, i, d);
 
         talon.setInverted(isInverted);
+
+        System.out.println("Talon [" + name + "] has been configured { Port = " + port + ", Inverted = " + isInverted + "}");
 
         return talon;
     }
@@ -330,7 +332,7 @@ public class ConfigFile
     {
         List<Element> elements = baseElement.getChildren();
         for (Element e : elements)
-            if (e.getAttributeValue("name") == name) return e;
+            if (e.getAttributeValue("name").equals(name)) return e;
         throw new ElementNotFoundException();
     }
 }

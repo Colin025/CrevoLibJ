@@ -7,32 +7,17 @@ public class WaitAction implements Action
     private float mWaitTime;
     private float mStartTime;
 
-    public WaitAction(float waitTime)
-    {
-        mWaitTime = waitTime;
-    }
+    public WaitAction(float waitTime) { mWaitTime = waitTime; }
 
     @Override
-    public boolean isFinished()
-    {
-        return Timer.getFPGATimestamp() - mStartTime >= mWaitTime;
-    }
+    public boolean isFinished() { return Timer.getFPGATimestamp() - mStartTime >= mWaitTime; }
 
     @Override
-    public void update()
-    {
-
-    }
+    public void update() { }
 
     @Override
-    public void done()
-    {
-
-    }
+    public void done() { }
 
     @Override
-    public void start()
-    {
-        mStartTime = (float)Timer.getFPGATimestamp();
-    }
+    public void start() { mStartTime = (float)Timer.getFPGATimestamp(); }
 }

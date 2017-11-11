@@ -14,13 +14,16 @@ public class Robot extends IterativeRobot
     Timer timer;
     public void robotInit()
     {
+
         try {
-            motor = ConfigFile.getInstance().getCANTalon("motor");
+            motor = ConfigFile.getInstance().getCANTalon("talon");
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
         timer = new Timer();
-        control = new Joystick(2);
+        control = new Joystick(0);
+
+        System.out.println(ConfigFile.getInstance().getRobotName());
     }
 
     public void teleopInit()

@@ -1,11 +1,9 @@
 package com.team2851.robot.auton.actions;
 
-import com.team2851.robot.RobotConstants;
-
-public class TestAction implements Action
-{
+public class TestAction implements Action {
     private boolean isFinished;
     int i = 0;
+
     @Override
     public boolean isFinished() {
         return isFinished;
@@ -13,10 +11,11 @@ public class TestAction implements Action
 
     @Override
     public void update() {
-        if (i < 255)
+        if (i < 255) {
             System.out.println(i);
-        else
+        } else {
             isFinished = true;
+        }
         i++;
     }
 

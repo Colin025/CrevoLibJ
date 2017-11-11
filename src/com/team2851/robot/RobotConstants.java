@@ -57,5 +57,5 @@ public class RobotConstants
     public final boolean IS_CHILD_SAFETY_ENGAGED = false;
 
     public final double AGITATOR_POWER = 0.3;
-    public final String configFilePath = "/home/lvuser/configFile/";
+    public final String configFilePath = "/home/lvuser/config/";
 }

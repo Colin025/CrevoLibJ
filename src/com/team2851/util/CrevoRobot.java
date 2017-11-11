@@ -1,11 +1,10 @@
 package com.team2851.util;
 
-import com.team2851.robot.auton.*;
+import com.team2851.robot.auton.Auton;
+import com.team2851.robot.auton.AutonExecuter;
 import com.team2851.robot.subsystem.Subsystem;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import java.util.Vector;
 
@@ -17,11 +16,7 @@ public class CrevoRobot extends IterativeRobot
     private Subsystem testSubsystem;
     private Telemetry telemetry = Telemetry.getInstance();
 
-    public final void registerAuton(Auton auton)
-    {
-        registerAuton(auton);
-    }
-
+    public final void registerAuton(Auton auton) { registerAuton(auton); }
 
     public CrevoRobot()
     {
@@ -55,8 +50,7 @@ public class CrevoRobot extends IterativeRobot
     {
         if (telemetry.getTestMode())
         {
-            for (Subsystem subsystem : mSubsystems)
-                subsystem.setCommand(subsystem.getTeleopCommand());
+            for (Subsystem subsystem : mSubsystems) subsystem.setCommand(subsystem.getTeleopCommand());
         } else
         {
             testSubsystem = (Subsystem) subsystemChooser.getSelected();
@@ -67,14 +61,14 @@ public class CrevoRobot extends IterativeRobot
     @Override
     public void disabledInit()
     {
-        for (Subsystem s : mSubsystems)
-            s.setCommand(s.getDefaultCommand());
+        for (Subsystem s : mSubsystems) { s.setCommand(s.getDefaultCommand()); }
         mAutonExecuter.stop();
     }
 
     // Eliminated Functions
     @Override
     public final void autonomousPeriodic() {}
+
     @Override
     public void teleopPeriodic() {}
 }
